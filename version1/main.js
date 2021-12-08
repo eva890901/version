@@ -79,7 +79,7 @@ function init() {
 	
 	scene.obstacles = [];
 	scene.obstacles.push ( new Obstacle (new THREE.Vector3(-20,0,0), 20) );
-	scene.obstacles.push ( new Obstacle (new THREE.Vector3(50,0,80), 30) );
+	scene.obstacles.push ( new Obstacle (new THREE.Vector3(50,0,60), 30) );
 	//scene.obstacles.push ( new Obstacle (new THREE.Vector3(0,0,30), 15) );
 	walls.push(new wall(10,100,240,new THREE.Vector3(125,20,0)));
     walls.push(new wall(10,100,240,new THREE.Vector3(-125,20,0)));
