@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<style>
+#info {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  color: #ffff00
+}
+
+body {
+  overflow: hidden
+}
+#info1 {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  padding: 10px;
+  color: #ffff00
+}
+
+body {
+  overflow: hidden
+}
+#result {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: #eb4034
+}
+#start {
+	position: absolute;
+	top: 440px;
+	font-size: 60px;
+	width: 100%;
+	padding: 5px;
+	text-align: center;
+	color: #ffff00;
+}
+#manu {
+	display: none;
+	width: 400px;
+	height: 250px;
+	margin-left: 10px;
+	background-color: #ffffe0;
+	border-radius: 30px;
+	text-align: left;
+	opacity: 0.8;
+}
+#lifebtn {
+
+	width: 10px;
+	height: 10px;
+	text-align: center;
+	
+}
+.button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 7px 30px;
+    border: 1px solid #992828;
+    border-radius: 8px;
+    background: #d6a3a7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#d6a3a7), to(#ffd9ff));
+    background: -moz-linear-gradient(top, #d6a3a7, #ffd9ff);
+    background: linear-gradient(to bottom, #d6a3a7, #ffd9ff);
+    font: normal normal bold 21px comic sans ms;
+    color: #b05db0;
+    text-decoration: none;
+}
+.button:hover,
+.button:focus {
+    border: 1px solid #f54040;
+    background: #ffc4c8;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffc4c8), to(#ffffff));
+    background: -moz-linear-gradient(top, #ffc4c8, #ffffff);
+    background: linear-gradient(to bottom, #ffc4c8, #ffffff);
+    color: #b05db0;
+    text-decoration: none;
+}
+.button:active {
+    background: #806264;
+    background: -webkit-gradient(linear, left top, left bottom, from(#806264), to(#ffd9ff));
+    background: -moz-linear-gradient(top, #806264, #ffd9ff);
+    background: linear-gradient(to bottom, #806264, #ffd9ff);
+}
+.button:before{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    margin: 0 4px -6px -4px;
+    position: relative;
+    top: 3px;
+    left: -2px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB5UlEQVRIie3VvU8UURQF8N9bCQUhktnKGGMoLNHSoNHEUjTEZDaSYEJh1KCljST+E1R+ELOxUQMmO4idDaUohQWtVBQWJjBgLAiRfRa7sLjytUBlPN3Mu+ece9/MO4//aMa7lYJsqWPjsXBkwll+QpY/Uq1+JdzdeN12KNFKXhBcxD2cQg86ReOHM8jy47iFQcxhFA8xjw6l5HvrBrVuz9W77cFrMV4XwirKmMFZPNtK29sgW+ogpBjCN4yJhVmlrqosb8MLfBaNC27i0/4MsvwMhtGLSQxJG6PLlgvEck08PhXCfUxIk+rOBtlyO/EabmMNY47FETeKf5BU8ra6+Iw0eS5bRBgU9Tf32TRBfIIBjIheKSU//5psapn1WMQHafKmRitcEswpJT+ay5vPwTAuoCiYkuUTsnxAlnduVqzHUXRvikPwQNPHbSzthkreLUjRjyW8FH1USpa21JwUlKVJX+sGG8hWsH6aMIHL0uRXYy1/jHlp8nY76v6iIu0iLS5gGlca4ovt6MP7naitZlEFpS30q5iWJqtHZFD4gp76AYM7ovKujJb00y6Yxfn6QVxTShZ2oxwk7CbVtqmKsb2KD3AfxFm1+OglTh+9QVpcU4voirQpQrbBwe6DGEew45/zb+E30/uWItV7grEAAAAASUVORK5CYII=") no-repeat left center transparent;
+    background-size: 100% 100%;
+}
+</style>
+</head>
+
+<body> 
+
+<div id="info">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div id = "btn">
+	<p class="lifebtn" onclick= "life()">
+<a class="button" href="#">funcion</a>
+	</p>
+
+	<div id="manu"style="color:blue">
+		<div>	
+			<script>
+				
+					
+					document.write('<img src="https://i.imgur.com/5E8mzag.png" width = "80" height = "80"></br> ');
+					document.write('<img src="https://i.imgur.com/5JfCHHN.jpg" width = "50" height = "50"><span style="font-family:monospace;font-size:24px;text-align: center;">:衝刺</span></br> ');
+					document.write('<img src="https://i.imgur.com/2bLxvc9.jpg" width = "200" height = "50"><span style="font-family:monospace;font-size:24px;text-align: center;">:暫停</span></br> ');
+				
+			</script>
+		</div>
+		
+		
+		
+		<button id = "closeBtn" onclick = "lifeclose()">CLOSE</button>	
+	</div>
+</div>
+
+
+<p id='result'></p>
+</div>
+<audio id="collisionsound" style="display:none">
+<source src="8865.wav" type='audio/wav'>
+</audio>
+<audio id="collisionsound1" style="display:none">
+<source src="11010.wav" type='audio/wav'>
+</audio>
+<audio id="collisionsound2" style="display:none">
+<source src="11899.wav" type='audio/wav'>
+</audio>
+
+<div id="start"></div>
+
+<script src="state-machine.js"></script>
+<script src="https://threejs.org/build/three.min.js"></script>
+<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://jyunming-chen.github.io/tutsplus/js/KeyboardState.js"></script>
+<script src="initFSM.js"></script>
+<script src="agent.js"></script>
+<script src="main.js"></script>
+<script src="Obstacle.js"></script>
+<script src="avatar.js"></script>
+<script src="second.js"></script>
+<script src="life.js"></script>
+<script>
+javascript:(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+
+var tg = 0 ;
+$('#click').click(function(){
+	tg=! tg;
+});
+
+// IIFE addition of clamp function
+( function() {
+      Math.clamp = function(val,min,max) {
+          return Math.min(Math.max(val,min),max);
+      } 
+} )();
+
+$('#switch').click ( function () {
+	useGyro = !useGyro;
+  if (useGyro) $('#switch').text ('using Gyro');
+  else $('#switch').text ('using LookAt');
+})
+
+
+class Agent extends Avatar {
+
+    constructor (pos, mesh, name = '', fsm) {
+        super (pos, mesh);
+        this.fsm = fsm;
+        this.stateSign = null;
+        this.name = name;
+        this.nbhd  = [];
+		this.msgQ = []; 	// message queue 
+		this.rescue = null;  // rescue somebody 
+		this.contract = false; // I need to ask for help again!
+	}
+   
+   update (dt) {
+
+        if( this.name == 'human') super.update (dt);  // calling avatar update
+        
+        else if( this.name == 'ghost' ){
+			
+            let obs = scene.obstacles;
+            let hit = false;
+            for (let i = 0 ; i < obs.length ; i++){
+                    
+                    var k = Math.sqrt(Math.pow(ghost.pos.x - obs[i].center.x,2)+ Math.pow(ghost.pos.z - obs[i].center.z ,2));
+					
+                    if(k <= obs[i].size+8){		// ghost touched the obstacles
+						
+						hit = true;
+						
+						// 求法向量 (兩圓心相減)
+						let n = ghost.pos.clone().sub(obs[i].center);
+						
+						let v = ghost.vel.clone(); 
+						let proj = v.projectOnVector(n);
+						ghost.vel.sub(proj);
+					
+						//位置修正
+						ghost.pos.copy(obs[i].center.clone().add(ghost.pos.clone().sub(obs[i].center).setLength(obs[i].size+8)));
+                        
+                        if(gasLevel >= 0){
+                            gasLevel -= 0.01;
+							gasLevel = clamp (gasLevel,0,1);
+                        }     
+                         
+                        break;
+                    }
+                    
+            }
+			
+			if (ghost.pos.z < -120+8) {
+				ghost.vel.z = - ghost.vel.z;
+				ghost.force = ghost.force.multiplyScalar(-dt);
+				ghost.pos.z = -120+8;
+			}
+			if (ghost.pos.z > 120-8) {
+				ghost.vel.z = - ghost.vel.z;
+				ghost.force = ghost.force.multiplyScalar(-dt);
+				ghost.pos.z = 120-8;
+			}
+			if (ghost.pos.x > 120-8) {
+				 ghost.vel.x = - ghost.vel.x;
+				 ghost.force = ghost.force.multiplyScalar(-dt);
+				 ghost.pos.x = 120-8;
+			}
+			if (ghost.pos.x < -120+8) {
+				 ghost.vel.x = - ghost.vel.x;
+				 ghost.force = ghost.force.multiplyScalar(-dt);
+				 ghost.pos.x = -120+8;
+			}
+			////////////////////////////////
+
+            ghost.mesh.children[0].rotation.y = 30;
+            if(!tg){
+                //ghost.mesh.children[0].rotation.y = 0.75;
+                ghost.mesh.children[2].quaternion.copy (ghost.mesh.quaternion.clone().invert());
+                ghost.mesh.children[0].quaternion.copy (ghost.mesh.quaternion.clone().invert());
+                ghost.mesh.children[3].quaternion.copy (ghost.mesh.quaternion.clone().invert());
+                ghost.mesh.children[4].quaternion.copy (ghost.mesh.quaternion.clone().invert());
+            }
+			
+            //speed = Math.clamp (speed, 0.1, 25.0);        
+            if(hit == false){
+				this.vel = new THREE.Vector3(speed,0,0);
+				this.vel.applyAxisAngle (new THREE.Vector3(0,1,0), angle);
+            }
+            else{
+				speed = this.vel.length();
+				angle = Math.atan2(-this.vel.z,this.vel.x);
+			}
+			
+			this.pos.add (this.vel.clone().multiplyScalar(dt));     
+
+			ghost.mesh.position.copy(this.pos);
+            ghost.mesh.rotation.y = angle;
+            
+        }
+
+        // agent's action 
+		
+        if (this.fsm) {
+            if (this.fsm.state === 'flee')
+                super.setFleeTarget (ghost.pos.x, ghost.pos.y, ghost.pos.z)
+                
+            if (this.fsm.state === 'idle'){
+				
+                super.setBrake (10);
+                
+            }
+            if (this.fsm.state === 'stop'){
+                super.setBrake (10);
+				
+			}
+        }
+		
+		if (this.msgQ.length > 0) {
+		
+		// debugger;
+		// I got these messages ...
+			for (let i = 0; i < this.msgQ.length; i++) {
+				console.log(`[log (${this.name})] {from: ${this.msgQ[i].from}, to: ${this.msgQ[i].to.name}, msg: ${this.msgQ[i].msg} }`);
+			}
+			
+		  // process messages
+		  // 1. if I am STOP, can only receive "rescue" or "sorry"
+		  //    [only one message can be received]
+		  //    1.1 rescue: state change to STOP-with-RESCUER
+		  //                (and register FROM as rescuer)
+		  //    1.2 sorry:  state change to STOP
+		  //                (and set rescuer to NULL)
+		  
+		  // 2. if I am IDLE, can only receive "help"
+		  //    [can receive more than one help]
+		  //    send "rescue" to first FROM
+		  //    register FROM as rescuree
+		  //    send "sorry" to rest FROM's
+			
+			if (this.fsm.state === 'stop') {		// receive rescue or sorry
+		  
+				if (this.msgQ[0].msg === 'rescue!') {
+					
+					//有人來救的stop 
+				}
+				else if (this.msgQ[0].msg === 'sorry!') {
+					
+					//收到訊息 被拋棄了的stop 所以重新求救一次
+					this.contract = true;
+				}
+				
+			}
+			else if (this.fsm.state === 'idle') {		//receive help
+				
+				Agent.sendMsg(this, this.msgQ[0].from, 'rescue!');
+				super.setSeekTarget(this.msgQ[0].from.pos.x , this.msgQ[0].from.pos.y , this.msgQ[0].from.pos.z);
+				//console.log(this.pos.x);
+				this.fsm.mission();
+				//去拯救
+				
+				
+				// rest; say sorry 其他通知無法拯救
+				for (var i = 1; i < this.msgQ.length; i++) {
+					Agent.sendMsg(this, this.msgQ[i].from, 'sorry!');
+					//無法拯救
+				}
+
+			}
+
+			// clear message queue
+			this.msgQ = [];
+			//console.log (`${this.name} has ${this.msgQ.length} messages`);
+		}
+
+        if (this.stateSign) {
+            this.stateSign.position.copy (this.pos);
+            this.stateSign.position.y = 5;
+            this.stateSign.rotation.x = -Math.PI/2;
+
+            if (this.fsm.state === 'idle') {
+				this.stateSign.children[0].material.visible = true;
+                this.stateSign.children[1].material.visible = false;
+                this.stateSign.children[2].material.visible = false;
+                this.stateSign.children[3].material.visible = false;
+                this.stateSign.children[4].material.visible = false;
+				this.stateSign.children[5].material.visible = false;            
+            }
+			else if (this.fsm.state === 'save') {
+                this.stateSign.children[3].material.visible = true;
+                this.stateSign.children[1].material.visible = false;
+                this.stateSign.children[2].material.visible = false;
+                this.stateSign.children[0].material.visible = false;
+                this.stateSign.children[4].material.visible = false;
+				this.stateSign.children[5].material.visible = false;
+
+				if (blingcount % 2 === 0) {
+					this.stateSign.children[1].material.visible = false;
+					this.stateSign.children[0].material.visible = false;
+					this.stateSign.children[2].material.visible = false;
+					this.stateSign.children[3].material.visible = true;
+					this.stateSign.children[4].material.visible = false;
+					this.stateSign.children[5].material.visible = false;
+				} 
+				else {
+					this.stateSign.children[1].material.visible = false;
+					this.stateSign.children[0].material.visible = false;
+					this.stateSign.children[2].material.visible = false;
+					this.stateSign.children[3].material.visible = false;
+					this.stateSign.children[4].material.visible = false;
+					this.stateSign.children[5].material.visible = true;
+				}           
+			}
+            else if (this.fsm.state === 'flee') {
+				this.stateSign.children[1].material.visible = true;
+				this.stateSign.children[0].material.visible = false;
+				this.stateSign.children[2].material.visible = false;
+				this.stateSign.children[3].material.visible = false;
+				this.stateSign.children[4].material.visible = false;
+				this.stateSign.children[5].material.visible = false;					
+                if (blingcount % 2 === 0) {
+					this.stateSign.children[1].material.visible = true;
+					this.stateSign.children[0].material.visible = false;
+					this.stateSign.children[2].material.visible = false;
+					this.stateSign.children[3].material.visible = false;
+					this.stateSign.children[4].material.visible = false;
+					this.stateSign.children[5].material.visible = false;
+				} 
+				else {
+					this.stateSign.children[1].material.visible = false;
+					this.stateSign.children[0].material.visible = false;
+					this.stateSign.children[2].material.visible = false;
+					this.stateSign.children[3].material.visible = false;
+					this.stateSign.children[4].material.visible = true;
+					this.stateSign.children[5].material.visible = false;
+				}
+            }
+            else if (this.fsm.state === 'stop') {
+                this.stateSign.children[2].material.visible = true;
+                this.stateSign.children[1].material.visible = false;
+                this.stateSign.children[0].material.visible = false;
+                this.stateSign.children[3].material.visible = false;
+                this.stateSign.children[4].material.visible = false;
+				this.stateSign.children[5].material.visible = false;
+                gasLevel += 0.01;
+                gasLevel = clamp (gasLevel,0.1,1);
+                
+            }
+
+        }
+   }
+   
+	static sendMsg(fromP, toP, msgBody) {
+		var msgObject = {
+			from: fromP,
+			to: toP,
+			msg: msgBody
+		};
+		toP.msgQ.push(msgObject);
+	}
+   
+	distanceTo(otherAgent) {
+        return this.pos.distanceTo(otherAgent.pos);
+    }
+    
+    addNbr(otherAgent) {    
+        this.nbhd.push(otherAgent);
+    }
+}
+
+////////////////////
+var camera, scene, renderer, clock;
+var keyboard = new KeyboardState();
+var timer=0;
+var whRatio, halfW, halfH;
+var useGyro = true;
+
+var mouse = new THREE.Vector2();
+var PROPORTION = 0.003;
+var ghost ,humans = [];
+var save;
+
+var speed, angle;
+var gasLevel = 1,hit = true,tachometer,tachometer1,gas = 1,N2,blood;
+var count = 0;
+var mesh,mesh1;
+var puffs = [];
+const NPUFFS = 60;
+var which = 0;
+
+
+var blink = false;
+var whichOne=0;
+var tickerOn = false;
+const TICKER_PERIOD =  1000;
+
+var clockOn = false; 
+var id;
+var result;
+
+var group;
+var walls=[];
+
+var ccgg,ccgg1, qq , qq1, q1, q2;
+var t = 0, offset = 0;
+var i=9,j=5;
+var open=false;
+var turn = true;
+var blingcount=0;
+var start;
+var turn1=false;
+init();
+animate();
+
+function findNbhd(humans) {
+
+	let i, j, dst;
+	let nhumans = humans.length;
+  
+	humans.forEach(function(human){human.nbhd=[]});
+  
+	for (i = 0; i < nhumans - 1; i++) {
+		for (j = i + 1; j < nhumans; j++) {
+			humans[i].addNbr(humans[j]);
+			humans[j].addNbr(humans[i]);
+		}
+	}
+}
+
+function clamp (v, vLo, vHi) {
+	if (v < vLo) return vLo;
+	if (v > vHi) return vHi;
+	return v;
+}
+
+function randomPosZX(min,max) {
+	let x = min + (max-min)*Math.random();
+	let z = min + (max-min)*Math.random();
+	
+	return new THREE.Vector3(x,0,z);
+}
+
+
+function chooseOne (whichOne) {
+	var dt = clock.getDelta();
+	ghost.update(dt*2);
+	humans.forEach(function(human) { 
+		human.update(dt);
+		if (human.fsm.state === "flee"){
+			for (let i = 0; i < human.stateSign.children.length; i++)
+			human.stateSign.children[i].material.visible = false;
+
+			human.stateSign.children[whichOne].material.visible = true;
+		}
+		
+	})
+	
+}
+function chooseOne1 (whichOne) {
+	var dt = clock.getDelta();
+	ghost.update(dt*2);
+	humans.forEach(function(human) { 
+		human.update(dt);
+		if (human.fsm.state === "idle" && save === 1){
+			for (let i = 0; i < human.stateSign.children.length; i++)
+			human.stateSign.children[i].material.visible = false;
+
+			human.stateSign.children[whichOne].material.visible = true;
+		}
+		
+	})
+	
+}
+
+function ticker() {
+  
+	if (Math.round(dt * 16) % 2 === 0) {
+		chooseOne (1);
+	} else {
+		chooseOne (4);
+	}
+
+}
+function ticker1() {
+  
+	if (ticker1.red) {
+		chooseOne1 (3);
+	}else {
+		chooseOne1 (5);
+	}
+
+	ticker1.red = ! ticker1.red;
+
+	setTimeout (ticker1, 100);
+}
+
+function updateTachometer (power) {
+	ghost.mesh.children[3].children[0].scale.x = power;
+	blood.children[0].scale.x = power;
+}
+
+function updateTachometer1 (power) {
+	ghost.mesh.children[4].children[0].scale.x = power;
+	N2.children[0].scale.x = power;
+}
+
+function scaleStateSign(human) {
+	let distance = human.pos.distanceTo (camera.position);  
+
+	let size = 2*Math.tan(camera.fov*Math.PI/180 * camera.aspect/2)*PROPORTION*distance;
+	
+	humans.forEach(function(human) { 
+		human.stateSign.scale.set (size, size, size);
+	})
+}
+
+
+
+</script>
+</body>
+
+</html>
