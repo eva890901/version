@@ -149,6 +149,7 @@ function buildsecond(){
 }
 function time1(){
 let qa, qb, qc, qd;
+	
 	t += 0.013;
 	//console.log(t);
   // for 0<t<1: [q1, q2] (offset = 0)
@@ -171,7 +172,7 @@ let qa, qb, qc, qd;
 	}
 	if(i<0){
 		i=9;
-		open = true;
+		open1 = true;
 		j--;
 		
 	}
@@ -179,7 +180,7 @@ let qa, qb, qc, qd;
 	if (turn && t <= 2) {
 		qq.slerpQuaternions (qa, qb, t - offset);
 		qq1.slerpQuaternions (qc, qd, t - offset);
-		if(!open){
+		if(!open1){
 			if(i===0){
 				ccgg.quaternion.copy (qq);
 				ccgg9.quaternion.copy (qq1);
@@ -233,6 +234,13 @@ let qa, qb, qc, qd;
 			else if(j===0){
 				ccgg11.quaternion.copy (qq);
 
+			}
+			if(i===0&&j===0){
+				clockOn = false;
+				collisionsound.play();
+				setTimeout(cancelAnimationFrame( id ),0);
+				window.location.replace('./result.html')
+				
 			}
 			
 			console.log(j);

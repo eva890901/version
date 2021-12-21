@@ -12,7 +12,34 @@ class wall {
 		scene.add(this.mesh);
     }
 }
+function initHUD() {
+	  // sceneHUD: a simple line boundary
+	  sceneHUD1 = new THREE.Scene();
+	  cameraHUD1 = new THREE.OrthographicCamera(-10.5, 10.5, 10.5, -10.5, -50, 50);
+	  cameraHUD1.position.z = 20;  // for border
+	  
+	  //小視窗
+	cameraHUD2 = new THREE.OrthographicCamera(-130,130,130,-130,-420,420);
+	cameraHUD2.position.set (0,30,0)
+	cameraHUD2.up.set (0,0,-1)   // for top view
+	cameraHUD2.lookAt (new THREE.Vector3())
 
+	  let points = [];
+	  points.push (
+		new THREE.Vector3(-10, -10, 0),
+		new THREE.Vector3(10, -10, 0),
+		new THREE.Vector3(10, 10, 0),
+		new THREE.Vector3(-10, 10, 0),
+		new THREE.Vector3(-10, -10, 0));
+	  var lineGeometry = new THREE.BufferGeometry().setFromPoints (points);
+		
+	  var line = new THREE.Line(lineGeometry,
+		new THREE.LineBasicMaterial({
+		  color: 0xff0000
+		}));
+	 // sceneHUD.add(line);
+  
+}
 
 function init() {
 
@@ -30,7 +57,9 @@ function init() {
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.setClearColor(0x888888);
 	start = document.getElementById("start");
+	
 	start.innerHTML = "Press enter to begin";
+	
 	var controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 	document.body.appendChild(renderer.domElement);
@@ -42,13 +71,12 @@ function init() {
 	loader2.crossOrigin = '';
 
 	texture = loader2.load('https://i.imgur.com/S2LPXOw.jpg');
-	//texture = loader2.load('https://i.imgur.com/g2zYLH9.jpeg');
 
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
 	texture.repeat.set(10, 10);
   
-	mesh = new THREE.Mesh(new THREE.PlaneGeometry(240, 240), 
+	mesh = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000), 
   	new THREE.MeshBasicMaterial({map: texture,side:THREE.DoubleSide}))
 	mesh.rotation.x = -Math.PI / 2;
 	scene.add(mesh);
@@ -96,7 +124,7 @@ function init() {
     sceneHUD.add(blood);
 	
 	/////////////////////////////////////
-	ghost = new Agent (new THREE.Vector3(30,0,0), agentMesh1 (2,'red'), 'ghost');
+	ghost = new Agent (new THREE.Vector3(-85,0,-85), agentMesh1 (2,'red'), 'ghost');
 		
 	for (let i = 0; i < 5; i++) {
 		let human = new Agent (randomPosZX(-100,100),agentMesh (1,'cyan'), 'human', initFSM());
@@ -120,7 +148,7 @@ function init() {
 	
 	// d-drive initial
 
-	speed = 5.0;
+	speed = 0.0;
 	angle = 0.0;
 	ghost.vel = new THREE.Vector3(-1,0,1).setLength(speed);
 	angle = -0.75*Math.PI;
@@ -131,21 +159,7 @@ function init() {
 
 	updateTachometer (0.1);
 	
-	group = new THREE.Group();
-	sceneHUD.add (group);
-  
-  	let loader89 = new THREE.TextureLoader();
-	let firstMap = loader89.load ("https://i.imgur.com/9u1brLw.png");
-	let firstMesh = new THREE.Mesh (new THREE.CircleGeometry(1,20), new THREE.MeshBasicMaterial(
-		{map: firstMap, transparent: true, alphaTest: 1, side:THREE.DoubleSide}));
-	group.add (firstMesh);
-  
-  	let thirdMap = loader89.load ("https://i.imgur.com/4cplgbb.png");
-	let thirdMesh = new THREE.Mesh (new THREE.CircleGeometry(1,20), new THREE.MeshBasicMaterial(
-		{map: thirdMap, transparent: true, alphaTest: 1, side:THREE.DoubleSide}));	
-	group.add (thirdMesh);
-	group.children[1].material.visible = false;
-	group.position.set(-13,-8.5,0);
+initHUD();
 	
 	buildsecond();
 
@@ -157,14 +171,17 @@ function countDown() {
 	turn = true;
 	if (clockOn === false) 
 		return;
+	else if(result())
+		return;
 	else  // clock is still one: set next timeout
 		setTimeout (countDown, 1000);
 
 	//$('#msg').text (counter);
+	//t += 0.5;
 	--counter;
 	console.log(counter);
 
-	if (counter < 0){
+	if (counter === 0){
 		clockOn = false;
 		collisionsound.play();
 		//setTimeout(cancelAnimationFrame( id ),0);
@@ -258,6 +275,7 @@ function animate() {
     if(keyboard.down('Z'))
 		tg=!tg;
 	if(keyboard.down("enter")) {
+		conclose()
 		turn = true;
 		if(turn){
 			//console.log(0);
@@ -266,28 +284,28 @@ function animate() {
 		setTimeout (countDown, 0);
 		start.innerHTML = " ";
 	}
-    if(tg){
+    if(!tg){
         let cameraPos = new THREE.Vector3(-50,25,0);
         ghost.mesh.localToWorld (cameraPos);
         camera.position.copy (cameraPos);
         let cameraLookAt = new THREE.Vector3(0,4,0);
         ghost.mesh.localToWorld (cameraLookAt);
         camera.lookAt (cameraLookAt);
-		group.children[0].material.visible = false;
-		group.children[1].material.visible = true;
+		//group.children[0].material.visible = false;
+		//group.children[1].material.visible = true;
     }
     else{
         camera.position.set( 0, 180 , 0 );
         camera.lookAt (new THREE.Vector3(0,0,0));
-		group.children[1].material.visible = false;
-		group.children[0].material.visible = true;
+		//group.children[1].material.visible = false;
+		//group.children[0].material.visible = true;
     }
     
     animate.distance = (animate.distance) ? animate.distance : 0;
     renderer.clear();
     id = requestAnimationFrame(animate);
     render();
-    renderer.render (sceneHUD, cameraHUD);
+    //renderer.render (sceneHUD, cameraHUD);
     
     findNbhd(humans);
 
@@ -362,6 +380,8 @@ function animate() {
     
     if(result()){
         collisionsound1.play();
+		start.innerHTML = "WIN!!!! ";
+		//counter=0;
         setTimeout(cancelAnimationFrame( id ),0);
     }
     
@@ -380,5 +400,31 @@ function animate() {
 }
 
 function render() {
-	renderer.render(scene, camera);
+
+		var WW = window.innerWidth;
+		var HH = window.innerHeight;
+		renderer.setScissorTest( true );
+
+		renderer.setViewport(0, 0, WW, HH);
+		camera.aspect = WW / HH;
+		camera.updateProjectionMatrix();
+		
+		renderer.setScissor(0, 0, WW, HH);
+		renderer.clear();
+		
+		//renderer.setViewport(0, 0, WW/2, HH);
+		//renderer.setScissor(0, 0, WW/2, HH);
+		renderer.render(scene, camera);
+		renderer.render (sceneHUD, cameraHUD);
+		renderer.setViewport(WW / 1.25, HH/1.6 , WW / 6, HH / 3);
+		renderer.setScissor(WW / 1.25, HH/1.6  , WW / 6, HH / 3);
+		
+		renderer.clear(true);  // important!
+		
+		renderer.render(sceneHUD1, cameraHUD1);		// border
+		renderer.render(scene, cameraHUD2);
+		
+		
+
+		renderer.setScissorTest( false );
 }

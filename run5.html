@@ -9,24 +9,14 @@
   top: 0px;
   width: 100%;
   padding: 10px;
-  text-align: center;
+  text-align: left;
   color: #ffff00
 }
 
 body {
   overflow: hidden
 }
-#info1 {
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  padding: 10px;
-  color: #ffff00
-}
 
-body {
-  overflow: hidden
-}
 #result {
   position: absolute;
   top: 50px;
@@ -42,25 +32,146 @@ body {
 	width: 100%;
 	padding: 5px;
 	text-align: center;
-	color: #ffff00;
+	color: #000000;
+}
+#start1 {
+	position: absolute;
+	top: 100px;
+	font-size: 6px;
+	width: 100%;
+	padding: 5px;
+	text-align: center;
+
+}
+#manu {
+	display: none;
+	width: 480px;
+	height: 250px;
+	margin-left: 10px;
+	background-image:url( 'https://i.imgur.com/gTk99ix.png' );
+	background-size:cover;
+	border-radius: 30px;
+	text-align: left;
+}
+#lifebtn {
+	position: absolute;
+	width: 80px;
+	height: 200px;
+	text-align: center;
+	
+}
+.button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 7px 30px;
+    border: 1px solid #992828;
+    border-radius: 8px;
+    background: #d6a3a7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#d6a3a7), to(#ffd9ff));
+    background: -moz-linear-gradient(top, #d6a3a7, #ffd9ff);
+    background: linear-gradient(to bottom, #d6a3a7, #ffd9ff);
+    font: normal normal bold 21px comic sans ms;
+    color: #b05db0;
+    text-decoration: none;
+}
+.button:hover,
+.button:focus {
+    border: 1px solid #f54040;
+    background: #ffc4c8;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffc4c8), to(#ffffff));
+    background: -moz-linear-gradient(top, #ffc4c8, #ffffff);
+    background: linear-gradient(to bottom, #ffc4c8, #ffffff);
+    color: #b05db0;
+    text-decoration: none;
+}
+.button:active {
+    background: #806264;
+    background: -webkit-gradient(linear, left top, left bottom, from(#806264), to(#ffd9ff));
+    background: -moz-linear-gradient(top, #806264, #ffd9ff);
+    background: linear-gradient(to bottom, #806264, #ffd9ff);
+}
+.button:before{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    margin: 0 4px -6px -4px;
+    position: relative;
+    top: 3px;
+    left: -2px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB5UlEQVRIie3VvU8UURQF8N9bCQUhktnKGGMoLNHSoNHEUjTEZDaSYEJh1KCljST+E1R+ELOxUQMmO4idDaUohQWtVBQWJjBgLAiRfRa7sLjytUBlPN3Mu+ece9/MO4//aMa7lYJsqWPjsXBkwll+QpY/Uq1+JdzdeN12KNFKXhBcxD2cQg86ReOHM8jy47iFQcxhFA8xjw6l5HvrBrVuz9W77cFrMV4XwirKmMFZPNtK29sgW+ogpBjCN4yJhVmlrqosb8MLfBaNC27i0/4MsvwMhtGLSQxJG6PLlgvEck08PhXCfUxIk+rOBtlyO/EabmMNY47FETeKf5BU8ra6+Iw0eS5bRBgU9Tf32TRBfIIBjIheKSU//5psapn1WMQHafKmRitcEswpJT+ay5vPwTAuoCiYkuUTsnxAlnduVqzHUXRvikPwQNPHbSzthkreLUjRjyW8FH1USpa21JwUlKVJX+sGG8hWsH6aMIHL0uRXYy1/jHlp8nY76v6iIu0iLS5gGlca4ovt6MP7naitZlEFpS30q5iWJqtHZFD4gp76AYM7ovKujJb00y6Yxfn6QVxTShZ2oxwk7CbVtqmKsb2KD3AfxFm1+OglTh+9QVpcU4voirQpQrbBwe6DGEew45/zb+E30/uWItV7grEAAAAASUVORK5CYII=") no-repeat left center transparent;
+    background-size: 100% 100%;
+}
+.img{
+position: fixed;
+z-index: 10;
+top:50%;
+left: 50%;
+margin-top: -200px;
+margin-left: -200px;
+}
+#close{
+position: absolute;
+left: 10px;
+top: 5px;
+
+}
+ 
+#P1{
+    position:absolute;
+    top:0px;
+    left:0px;
+	right:100px;
+    z-index:0;
+	width:8000px;
+	height:8000px;
+	opacity:0.5;
+}
+#P2{
+    position:absolute;
+    top:20px;
+    left:400px;
+    z-index:1;
+}
+#P3{
+    position:absolute;
+    top:500px;
+    left:950px;
+    z-index:1;
 }
 </style>
 </head>
 
 <body> 
-
-<div id="info">Press 'space' to stop
-<br>
-<br>
-<button id='click'> 3rd Camera </button>
-<br>
-<p id='ghoststate'>normal mode</p></h1>
-
-<br>
-
-<p id='result'></p>
+<div id="info">
+<p id='result'></p>	
 </div>
 
+<div id = "info">
+
+	<div id="conex"style="position:relative;">
+
+
+	<img src="black.png" id="P1">
+	<div>
+	<img src="123.png" id="P2">
+	<input type="button" id="P3" style="width: 80px;height: 80px;background-image:url( 'https://i.imgur.com/cZUSX4d.png' );border-radius:50%;background-size:cover;background-color:#ffffe0"
+	onclick= "changeImg()"/>
+	</div>
+	</div>
+	<div>
+		<p class="lifebtn" onclick= "life()">
+		<a class="button" href="#"></a>
+	</p>
+
+</div>   
+	<div id="manu"/>
+
+	</div>
+
+　　</script>
 <audio id="collisionsound" style="display:none">
 <source src="8865.wav" type='audio/wav'>
 </audio>
@@ -70,7 +181,9 @@ body {
 <audio id="collisionsound2" style="display:none">
 <source src="11899.wav" type='audio/wav'>
 </audio>
+
 <div id="start"></div>
+
 <script src="state-machine.js"></script>
 <script src="https://threejs.org/build/three.min.js"></script>
 <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
@@ -82,10 +195,10 @@ body {
 <script src="Obstacle.js"></script>
 <script src="avatar.js"></script>
 <script src="second.js"></script>
+<script src="life.js"></script>
 <script>
-javascript:(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
 
-var tg = 0 ;
+var tg = 1 ;
 $('#click').click(function(){
 	tg=! tg;
 });

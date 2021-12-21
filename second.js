@@ -149,7 +149,7 @@ function buildsecond(){
 }
 function time1(){
 let qa, qb, qc, qd;
-	t += 0.01;
+	t += 0.0115;
 	//console.log(t);
   // for 0<t<1: [q1, q2] (offset = 0)
   // for 1<t<2: [q2, q3] (offset = 1)
@@ -234,7 +234,13 @@ let qa, qb, qc, qd;
 				ccgg11.quaternion.copy (qq);
 
 			}
-			
+			if(i===0&&j===0){
+				clockOn = false;
+				collisionsound.play();
+				setTimeout(cancelAnimationFrame( id ),0);
+				window.location.replace('./result.html')
+				
+			}
 			console.log(j);
 		}
 		else if(i===1){
